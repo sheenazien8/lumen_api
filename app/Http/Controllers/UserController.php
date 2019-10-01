@@ -2,8 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\User;
-
 class UserController extends Controller
 {
     public function __construct()
@@ -12,7 +10,7 @@ class UserController extends Controller
     }
     public function detail($user)
     {
-        $user = User::find($user);
+        $user = \App\User::find($user);
         if ($user) {
             return response()->json([
                 'message' => 'Success show detail',
