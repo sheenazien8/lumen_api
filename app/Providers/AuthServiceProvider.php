@@ -2,7 +2,6 @@
 
 namespace App\Providers;
 
-use App\User;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\ServiceProvider;
 
@@ -34,7 +33,7 @@ class AuthServiceProvider extends ServiceProvider
             if ($request->header('Authorization')) {
                 $api_token = explode(' ', $request->header('Authorization'));
 
-                return User::where('api_token', $api_token[1])->first();
+                return \App\User::where('api_token', $api_token[1])->first();
             }
         });
     }
